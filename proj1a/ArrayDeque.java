@@ -30,9 +30,9 @@ public class ArrayDeque<T> {
         if (size == items.length) {
             resize(size *4 );
         }
-        items[0] = t;
-        size +=1;
-        nextFirst-=1;
+        items[nextFirst] = t;
+        size ++;
+        nextFirst--;
         if (nextFirst<0){
             nextFirst=items.length-1;
         }
@@ -41,9 +41,9 @@ public class ArrayDeque<T> {
         if (size == items.length) {
             resize(size *4 );
         }
-        items[size] = t;
-        size += 1;
-        nextLast+=1;
+        items[nextLast] = t;
+        size ++;
+        nextLast++;
         if (nextLast>items.length-1){
             nextLast=0;
         }
