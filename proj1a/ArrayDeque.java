@@ -14,10 +14,10 @@ public class ArrayDeque<T> {
 
     public void resize(int capacity){
         T[] a = (T[]) new Object[capacity];
+        int j = nextFirst;
         for (int i = 0;i<items.length;i++){
-            int j = nextFirst;
             a[i] = items[j+1];
-            j+=1;
+            j++;
             if(j>size){
                 j=0;
             }
