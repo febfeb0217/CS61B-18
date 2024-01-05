@@ -5,8 +5,9 @@ public class LinkedListDeque<T> {
 
     public LinkedListDeque(){
         sentinel = new IntNode(null,null,null);
-        sentinel.next =last;
-        last.prev = sentinel;
+        sentinel.prev =sentinel;
+        sentinel.next =sentinel;
+        last = sentinel;
         size = 0;
     }
 
@@ -20,6 +21,9 @@ public class LinkedListDeque<T> {
         }
     }
     public void addFirst(T t){
+        if(size == 0){
+            sentinel.next= new IntNode(sentinel,t,last);
+        }
         sentinel.next= new IntNode(sentinel,t,sentinel.next);
         size ++;
     }
